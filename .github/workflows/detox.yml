@@ -38,7 +38,9 @@ jobs:
         run: npx pod-install
 
       - name: Build App for Detox
-        run: detox build -c ios.sim.release
+        run: |
+          export MOCK_API=true
+          detox build -c ios.sim.release
 
       - uses: futureware-tech/simulator-action@v2
         with:

@@ -4,8 +4,16 @@
  *
  * @format
  */
+const defaultSourceExts =
+  require('metro-config/src/defaults/defaults').sourceExts;
 
 module.exports = {
+  resolver: {
+    sourceExts:
+      process.env.MOCK_API === 'true'
+        ? ['mock.js', ...defaultSourceExts]
+        : defaultSourceExts,
+  },
   transformer: {
     getTransformOptions: async () => ({
       transform: {

@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - android
   pull_request:
     types: [opened, synchronize, reopened]
 

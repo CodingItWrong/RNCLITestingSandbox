@@ -18,11 +18,24 @@ jobs:
           node-version: 18
           cache: "yarn"
 
+      - name: Gradle cache
+        uses: gradle/gradle-build-action@v2
+
       - name: Install Java JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: 11
+
+      - name: Run Detox Test(s)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          target: default
+          arch: x86_64
+          profile: pixel
+          avd-name: Pixel_API_29_AOSP
+          script: adb devices
 
       - name: Install npm dependencies
         run: yarn install --frozen-lockfile
@@ -41,4 +54,4 @@ jobs:
           arch: x86_64
           profile: pixel
           avd-name: Pixel_API_29_AOSP
-          script: detox test -c android.emu.release
+          script: detox test -c android.emu.release --headless

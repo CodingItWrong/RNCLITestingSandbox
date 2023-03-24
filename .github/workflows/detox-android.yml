@@ -18,24 +18,41 @@ jobs:
           node-version: 18
           cache: "yarn"
 
-      - name: Gradle cache
-        uses: gradle/gradle-build-action@v2
-
-      - name: Install Java JDK
+      - name: Install Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
+          distribution: 'temurin'
           java-version: 11
+          cache: 'gradle'
 
-      - name: Run Detox Test(s)
+      - name: Gradle cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key:
+            gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-${{
+            hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{
+            hashFiles('**/buildSrc/**/*.kt') }}
+
+      - name: AVD cache
+        uses: actions/cache@v2
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-29
+
+      - name: create AVD and generate snapshot for caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          target: default
-          arch: x86_64
-          profile: pixel
-          avd-name: Pixel_API_29_AOSP
-          script: adb devices
+          force-avd-creation: false
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
 
       - name: Install npm dependencies
         run: yarn install --frozen-lockfile

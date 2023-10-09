@@ -1,6 +1,8 @@
-# My Project
+# React Native CLI Testing Sandbox
 
-Describe your project here.
+This is an example React Native CLI project set up to play around with Detox testing. There is a sample Detox test that is configured to run locally and on GitHub Actions.
+
+See the [history of the GitHub Actions runs](https://github.com/CodingItWrong/RNCLITestingSandbox/actions).
 
 ## Requirements
 
@@ -27,3 +29,7 @@ Dependencies are locked with `yarn.lock`; please use `yarn` rather than `npm` fo
 
 - Run `detox build -c ios.sim.debug` (only needs to be run once per native code changes)
 - Run `detox test -c ios.sim.debug`
+
+## License
+
+MIT

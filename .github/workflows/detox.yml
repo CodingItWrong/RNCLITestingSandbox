@@ -28,6 +28,9 @@ jobs:
       - name: Install npm dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Install iOS dependencies
+        run: npx pod-install
+
       - name: Install Detox CLI
         run: |
           brew tap wix/brew

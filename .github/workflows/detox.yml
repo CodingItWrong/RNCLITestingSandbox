@@ -30,7 +30,7 @@ jobs:
 
       - name: Install iOS dependencies
         run: npx pod-install
-      
+
       - name: Install Detox CLI
         run: |
           brew tap wix/brew

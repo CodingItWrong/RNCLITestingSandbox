@@ -1,6 +1,6 @@
 # React Native CLI Testing Sandbox
 
-This is an example React Native CLI project set up to play around with Detox testing. There is a sample Detox test that is configured to run locally and on GitHub Actions.
+This is an example React Native CLI project set up to play around with Detox and RNTL testing. There is a sample test for each that is configured to run locally and on GitHub Actions.
 
 See the [history of the GitHub Actions runs](https://github.com/CodingItWrong/RNCLITestingSandbox/actions).
 

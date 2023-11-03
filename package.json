@@ -22,7 +22,7 @@
     "@testing-library/react-native": "^12.3.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.1",
-    "@types/react": "^18.0.24",
+    "@types/react": "^18.2.34",
     "@types/react-test-renderer": "^18.0.3",
     "babel-jest": "^29.2.1",
     "detox": "^20.13.0",

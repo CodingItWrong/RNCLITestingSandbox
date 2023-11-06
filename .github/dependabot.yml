@@ -4,3 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    ignore:
+      - dependency-name: "react-native"
+        versions: [">0.71"] # https://github.com/wix/Detox/issues/4154

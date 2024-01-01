@@ -25,7 +25,7 @@
     "@types/react": "^18.2.40",
     "@types/react-test-renderer": "^18.0.7",
     "babel-jest": "^29.2.1",
-    "detox": "^20.13.5",
+    "detox": "^20.14.7",
     "eslint": "^8.53.0",
     "eslint-plugin-detox": "^1.0.0",
     "eslint-plugin-import": "^2.27.5",
